@@ -56,7 +56,7 @@
                         </li>
                         <li class="nav-link">
                             <div class="ADAmember">
-                                Dodaj
+                             <a href="{{route('income.create')}}"> Dodaj
                             </div>
                         </li>
                         <li class="nav-link">
