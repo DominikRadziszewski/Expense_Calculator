@@ -56,7 +56,7 @@
                         </li>
                         <li class="nav-link">
                             <div class="ADAmember">
-                             <a href="{{route('income.create')}}"> Dodaj
+                             <a href="{{route('budget.create')}}"> Dodaj
                             </div>
                         </li>
                         <li class="nav-link">

@@ -5,11 +5,11 @@ namespace App\Enums;
 enum  ExpensesCategory:string{
 
 
-const flat = 'mieszkanie';
-const food  = 'jedzenie';
-const Agd = 'agd';
-const transport = 'transport';
-const other = 'inne';
+const flat = 'Mieszkanie';
+const food  = 'Jedzenie';
+const Agd = 'Agd';
+const transport = 'Transport';
+const other = 'Inne';
 
 const ExpensesCategory = [
     self::flat,

@@ -51,6 +51,28 @@
             <div class="col-md-3">
                 <div class="card-body bg-light mb-2">
                     Rzeczywiste wydatki
+                    <div style="overflow: auto; max-height: 300px;">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Data</th>
+                                    <th scope="col">Nazwa</th>
+                                    <th scope="col">Ile</th>
+                                    <th scope="col">Category</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($expenses as $expense)
+                                    <tr>
+                                        <td>{{ $expense->date }}</td>
+                                        <td>{{ $expense->name }}</td>
+                                        <td>{{ $expense->amount }}</td>
+                                        <td>{{ $expense->category }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
             <div class="col-md-2">
