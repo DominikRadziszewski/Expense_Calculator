@@ -12,18 +12,29 @@ class BudgetController extends Controller
 {
     public function index()
     {
-        return view('budget.index',['incomes' => Income::all(), 'expenses' =>Expenses::all()]); 
+        $user = Auth::user();
+        
+        $incomes = Income::where('user_id', $user->id)->get();
+        $expenses = Expenses::where('user_id', $user->id)->get();
+        $general_income = $user->generalIncome();
+        $general_expenses = $user->generalExpenses();
+    
+        return view('budget.index', [
+            'incomes' => $incomes,
+            'expenses' => $expenses,
+            'general_income' => $general_income,
+            'general_expenses' => $general_expenses,
+        ]);
     }
     public function create()
     {
         
-    
         return view('budget.create');
     }
     function store(Request $request)
     {
         $this->validate($request, [
-            'name' =>'required',
+            'name' =>'required|',
             'amount' =>'required',
             'type' =>'required',
             'category' =>'required',
@@ -31,7 +42,6 @@ class BudgetController extends Controller
         ]);
         if($request->type == 'income'){
     $income = new Income;
-         $income->type = $request->input('type');
         $income->name = $request->input('name');
         $income->amount = $request->input('amount');
         $income->category = $request->input('category');

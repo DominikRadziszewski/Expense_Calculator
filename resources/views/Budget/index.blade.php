@@ -13,7 +13,14 @@
         <div class="row justify-content-center">
             <div class="col-md-2">
                 <div class="card-body bg-light mb-3">
-                    Planowany Przychód
+                    Łączny Przychód
+                    <table class="table table-hover">
+                        <tbody>
+                            <tr>
+                                <td>{{$general_income}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div class="col-6 col-md-3">
@@ -46,6 +53,13 @@
             <div class="col-md-1">
                 <div class="card-body bg-light mb-3">
                     Bilans
+                    <table class="table table-hover">
+                        <tbody>
+                            <tr>
+                                <td>{{$general_income - $general_expenses }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div class="col-md-3">
@@ -77,7 +91,14 @@
             </div>
             <div class="col-md-2">
                 <div class="card-body bg-light mb-5">
-                    Planowe wydatki
+                    Łączne wydatki
+                    <table class="table table-hover">
+                        <tbody>
+                            <tr>
+                                <td>{{$general_expenses }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
