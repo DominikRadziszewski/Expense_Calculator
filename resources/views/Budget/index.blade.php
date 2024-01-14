@@ -2,14 +2,14 @@
 
 @section('content')
 <div class="container">
-    <div class="card">
-        <div class="row justify-content-center">
-            <div class="col-md-1">
-                <div>
-                    <img src="{{ asset('storage/Logo.png') }}" alt="Logo" width="110px" height="120px">
-                </div>
+    <div class="row justify-content-center">
+        <div class="col-md-1">
+            <div>
+                <img src="{{ asset('storage/Logo.png') }}" alt="Logo" width="110px" height="120px">
             </div>
         </div>
+    </div>
+    <div class="card">
         <div class="row justify-content-center">
             <div class="col-md-2">
                 <div class="card-body bg-light mb-3">
