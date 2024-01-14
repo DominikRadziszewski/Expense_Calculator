@@ -34,16 +34,25 @@
                                     <th scope="col">Nazwa</th>
                                     <th scope="col">Ile</th>
                                     <th scope="col">Category</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($incomes as $income)
-                                    <tr>
-                                        <td>{{ $income->date }}</td>
-                                        <td>{{ $income->name }}</td>
-                                        <td>{{ $income->amount }}</td>
-                                        <td>{{ $income->category }}</td>
-                                    </tr>
+                                <tr>
+                                    <td>{{ $income->date }}</td>
+                                    <td>{{ $income->name }}</td>
+                                    <td>{{ $income->amount }}</td>
+                                    <td>{{ $income->category }}</td>
+                                    <td>
+                                    <form action="{{ route('budget.destroy', ['id' => $income->id]) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="hidden" name="value" value="1">
+                                        <td><button class="delete" type="submit">Delete</button>
+                                    </form>
+                                </td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>
@@ -77,12 +86,20 @@
                             </thead>
                             <tbody>
                                 @foreach ($expenses as $expense)
-                                    <tr>
-                                        <td>{{ $expense->date }}</td>
-                                        <td>{{ $expense->name }}</td>
-                                        <td>{{ $expense->amount }}</td>
-                                        <td>{{ $expense->category }}</td>
-                                    </tr>
+                                <tr>
+                                    <td>{{ $expense->date }}</td>
+                                    <td>{{ $expense->name }}</td>
+                                    <td>{{ $expense->amount }}</td>
+                                    <td>{{ $expense->category }}</td>
+                                    <td>
+                                        <form action="{{ route('budget.destroy', ['id' => $expense->id]) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <input type="hidden" name="value" value="2">
+                                            <button class="delete" type="submit">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>

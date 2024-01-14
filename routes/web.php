@@ -25,3 +25,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/budget', [App\Http\Controllers\BudgetController::class, 'index'])->name('budget.index');
 Route::get('/budget/create', [App\Http\Controllers\BudgetController::class, 'create'])->name('budget.create');
 Route::post('/budget/store', [App\Http\Controllers\BudgetController::class,'store'])->name('budget.store');
+Route::delete('/budget/{id}', [App\Http\Controllers\BudgetController::class, 'destroy'])->name('budget.destroy');

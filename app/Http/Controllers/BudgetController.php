@@ -28,10 +28,9 @@ class BudgetController extends Controller
     }
     public function create()
     {
-        
         return view('budget.create');
     }
-    function store(Request $request)
+    public function store(Request $request)
     {
         $this->validate($request, [
             'name' =>'required|',
@@ -61,4 +60,31 @@ class BudgetController extends Controller
         }
         return redirect()->route('budget.index');
     }
+
+    public function destroy(Request $request, $id)
+    {
+        $value = $request->input('value');
+    
+        if ($value == 1) {
+            $income = Income::find($id);
+    
+            if (!$income) {
+                return redirect()->route('budget.index')->with('error', 'Income not found');
+            }
+    
+            $income->delete();
+            return redirect()->route('budget.index')->with('success', 'Income deleted');
+        } else {
+            $expense = Expenses::find($id);
+    
+            if (!$expense) {
+                return redirect()->route('budget.index')->with('error', 'Expense not found');
+            }
+    
+            $expense->delete();
+            return redirect()->route('budget.index')->with('success', 'Expense deleted');
+        }
+    }
+    
+
 }
