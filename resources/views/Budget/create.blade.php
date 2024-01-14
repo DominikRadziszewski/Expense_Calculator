@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dodanie</div>
+                <div class="card-header" style="text-align: center;">Dodaj Przychód lub Wydatek</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('budget.store')}}" enctype="multipart/form-data">

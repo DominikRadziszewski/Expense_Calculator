@@ -9,6 +9,24 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="row align-items-start" style="text-align: center;">
+          <div class="col">
+            <button id="previousMonthButton"><-Poprzedni Miesiąc</button>
+        
+          </div>
+          <div class="col h2" >
+            @php 
+                use App\Helpers\MonthHelper;
+                $date = date('m');
+                echo MonthHelper::getMonthName($date);
+            @endphp
+        </div>
+        
+        <div class="col">
+            <button id="nextMonthButton">Następny Miesiąc -></button>
+        </div>
+    </div>
     <div class="card">
         <div class="row justify-content-center">
             <div class="col-md-2">
@@ -39,20 +57,22 @@
                             </thead>
                             <tbody>
                                 @foreach ($incomes as $income)
+                                @if(date('m', strtotime($date)) == date('m', strtotime($income->date)))
                                 <tr>
-                                    <td>{{ $income->date }}</td>
-                                    <td>{{ $income->name }}</td>
-                                    <td>{{ $income->amount }}</td>
-                                    <td>{{ $income->category }}</td>
-                                    <td>
-                                    <form action="{{ route('budget.destroy', ['id' => $income->id]) }}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <input type="hidden" name="value" value="1">
-                                        <td><button class="delete" type="submit">Delete</button>
-                                    </form>
-                                </td>
-                                </tr>
+                                            <td>{{ $income->date }}</td>
+                                            <td>{{ $income->name }}</td>
+                                            <td>{{ $income->amount }}</td>
+                                            <td>{{ $income->category }}</td>
+                                            <td>
+                                                <form action="{{ route('budget.destroy', ['id' => $income->id]) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <input type="hidden" name="value" value="1">
+                                                    <button class="delete" type="submit">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endif
                                 @endforeach
                             </tbody>
                         </table>
@@ -86,6 +106,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($expenses as $expense)
+                                @if(date('m', strtotime($date)) == date('m', strtotime($income->date)))
                                 <tr>
                                     <td>{{ $expense->date }}</td>
                                     <td>{{ $expense->name }}</td>
@@ -100,6 +121,7 @@
                                         </form>
                                     </td>
                                 </tr>
+                                @endif
                                 @endforeach
                             </tbody>
                         </table>
@@ -112,7 +134,7 @@
                     <table class="table table-hover">
                         <tbody>
                             <tr>
-                                <td>{{$general_expenses }}</td>
+                                <td>{{$general_expenses}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -122,3 +144,5 @@
     </div>
 </div>
 @endsection
+
+
