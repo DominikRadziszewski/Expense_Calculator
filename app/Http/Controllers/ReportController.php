@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\IncomeCategory;
 use App\Http\Controllers\Controller;
 use App\Models\Expenses;
 use App\Models\Income;
@@ -12,16 +13,23 @@ class ReportController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $incomes = Income::where('user_id', $user->id)->get();
+    $incomesQuery = Income::where('user_id', $user->id);
+    
+    $date = now();
+    $filteredIncomes = Income::filterIncomesByMonth($incomesQuery, 'm', $date);
+    
+    $incomes = $filteredIncomes->get();
         $expenses = Expenses::where('user_id', $user->id)->get();
 
-        $labels = [];
-        $values = [];
+        $labels = IncomeCategory::IncomeCategory;
 
-        foreach ($incomes as $income) {
-            $labels[] = $income->category;
-            $values[] = $income->amount;
+        foreach ($labels as $label)  {
+            $totalAmount = $incomes->where('category', $label)->sum('amount');
+            $values[$label] = $totalAmount;
         }
+    
+    
+
 
         return view('report.index', [
             'labels' => $labels,

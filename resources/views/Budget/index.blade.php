@@ -57,7 +57,6 @@
                             </thead>
                             <tbody>
                                 @foreach ($incomes as $income)
-                                @if(date('m', strtotime($date)) == date('m', strtotime($income->date)))
                                 <tr>
                                             <td>{{ $income->date }}</td>
                                             <td>{{ $income->name }}</td>
@@ -72,7 +71,7 @@
                                                 </form>
                                             </td>
                                         </tr>
-                                    @endif
+                                    
                                 @endforeach
                             </tbody>
                         </table>
@@ -106,7 +105,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($expenses as $expense)
-                                @if(date('m', strtotime($date)) == date('m', strtotime($income->date)))
+                                @if(date('m', strtotime($date)) == date('m', strtotime($expense->date)))
                                 <tr>
                                     <td>{{ $expense->date }}</td>
                                     <td>{{ $expense->name }}</td>

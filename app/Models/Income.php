@@ -19,5 +19,8 @@ class Income extends Model
     {
         return $this->belongsTo(User::class);
     }
-
+    public static function filterIncomesByMonth($query, $format, $date)
+    {
+        return $query->whereMonth('date', date($format, strtotime($date)));
+    }
 }

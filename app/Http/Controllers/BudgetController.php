@@ -11,21 +11,28 @@ use App\Models\Expenses;
 class BudgetController extends Controller
 {
     public function index()
-    {
-        $user = Auth::user();
-        
-        $incomes = Income::where('user_id', $user->id)->get();
-        $expenses = Expenses::where('user_id', $user->id)->get();
-        $general_income = $user->generalIncome();
-        $general_expenses = $user->generalExpenses();
+{
+    $user = Auth::user();
+    $incomesQuery = Income::where('user_id', $user->id);
     
-        return view('budget.index', [
-            'incomes' => $incomes,
-            'expenses' => $expenses,
-            'general_income' => $general_income,
-            'general_expenses' => $general_expenses,
-        ]);
-    }
+    $date = now();
+    $filteredIncomes = Income::filterIncomesByMonth($incomesQuery, 'm', $date);
+    
+    $incomes = $filteredIncomes->get();
+    
+    $expenses = Expenses::where('user_id', $user->id)->get();
+    $general_income = $user->generalIncome();
+    $general_expenses = $user->generalExpenses();
+
+   
+       
+    return view('budget.index', [
+        'incomes' => $incomes,
+        'expenses' => $expenses,
+        'general_income' => $general_income,
+        'general_expenses' => $general_expenses
+    ]);
+}
     public function create()
     {
         return view('budget.create');
