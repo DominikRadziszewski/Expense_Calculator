@@ -21,7 +21,7 @@
                 $date = date('m');
                 echo MonthHelper::getMonthName($date);
             @endphp
-        </div>
+        </div>  
         
         <div class="col">
             <button id="nextMonthButton">Następny Miesiąc -></button>

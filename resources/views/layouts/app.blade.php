@@ -55,13 +55,13 @@
                             </div>
                         </li>
                         <li class="nav-link">
-                            <div class="ADAmember">
-                             <a href="{{route('budget.create')}}"> Dodaj
+                            <div class="">
+                             <a href="{{route('budget.create')}}"> Dodaj</a>
                             </div>
                         </li>
                         <li class="nav-link">
-                            <div class="ADAmember">
-                                Statystyki
+                            <div class="">
+                                <a href="{{route('report.index')}}"> Raport</a>
                             </div>
                         </li>
                         <li class="nav-item">

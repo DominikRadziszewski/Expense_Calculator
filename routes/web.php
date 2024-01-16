@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,3 +27,5 @@ Route::get('/budget', [App\Http\Controllers\BudgetController::class, 'index'])->
 Route::get('/budget/create', [App\Http\Controllers\BudgetController::class, 'create'])->name('budget.create');
 Route::post('/budget/store', [App\Http\Controllers\BudgetController::class,'store'])->name('budget.store');
 Route::delete('/budget/{id}', [App\Http\Controllers\BudgetController::class, 'destroy'])->name('budget.destroy');
+
+Route::get('/report',[ReportController::class, 'index'])->name('report.index');
