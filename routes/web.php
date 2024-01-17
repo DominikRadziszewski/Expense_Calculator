@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MonthCotroller;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -29,3 +30,5 @@ Route::post('/budget/store', [App\Http\Controllers\BudgetController::class,'stor
 Route::delete('/budget/{id}', [App\Http\Controllers\BudgetController::class, 'destroy'])->name('budget.destroy');
 
 Route::get('/report',[ReportController::class, 'index'])->name('report.index');
+
+Route::get('/budget/{month?}', [MonthCotroller::class, 'index'])->name('nextmonth.index');

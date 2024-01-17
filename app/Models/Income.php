@@ -19,8 +19,16 @@ class Income extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public static function filterIncomesByMonth($query, $format, $date)
+    public static function filterIncomesByMonth($query, $month)
     {
-        return $query->whereMonth('date', date($format, strtotime($date)));
+        $startOfMonth = now()->startOfMonth();
+        $endOfMonth = now()->endOfMonth();
+    
+        if (is_numeric($month)) {
+            $startOfMonth->month($month);
+            $endOfMonth->month($month);
+        }
+    
+        return $query->whereBetween('date', [$startOfMonth->toDateString(), $endOfMonth->toDateString()]);
     }
 }

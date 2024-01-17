@@ -19,5 +19,15 @@ class Expenses extends Model
     {
         return $this->belongsTo(User::class);
     }
-
+    public static function filterExpensesByMonth($query, $month)
+    {
+        $startOfMonth = now()->startOfMonth();
+        $endOfMonth = now()->endOfMonth();
+    
+        if (is_numeric($month)) {
+            $startOfMonth->month($month);
+            $endOfMonth->month($month);
+        }
+        return $query->whereBetween('date', [$startOfMonth, $endOfMonth]);
+    }
 }
