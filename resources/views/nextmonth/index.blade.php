@@ -12,8 +12,8 @@
     <div class="container">
         <div class="row align-items-start" style="text-align: center;">
             <div class="col">
-                <button id="previousMonthButton" onclick="window.location.href='{{ route('nextmonth.index', ['month' => sprintf('%02d', max(1, $month - 1))]) }}'                    ">
-                    Poprzedni Miesiąc 
+                <button id="previousMonthButton" onclick="window.location.href='{{ route('nextmonth.index', ['month' => sprintf('%02d', max(1, $month - 1))]) }}'">
+                    Poprzedni Miesiąc
                 </button>
             </div>
             <div class="col h2">

@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row align-items-start" style="text-align: center;">
           <div class="col">
-            <button id="previousMonthButton" onclick="window.location.href='{{ route('nextmonth.index', ['month' => $month - 1]) }}'">
+            <button id="previousMonthButton">
                 Poprzedni Miesiąc
             </button>
           </div>
@@ -23,7 +23,7 @@
             @endphp
             </div>  
             <div class="col">
-                <button id="nextMonthButton" onclick="window.location.href='{{ route('nextmonth.index', ['month' => $month + 1]) }}'">
+                <button id="nextMonthButton">
                     Następny Miesiąc ->
                 </button>
         </div>  

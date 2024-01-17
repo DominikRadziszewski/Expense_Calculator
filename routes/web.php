@@ -31,4 +31,4 @@ Route::delete('/budget/{id}', [App\Http\Controllers\BudgetController::class, 'de
 
 Route::get('/report',[ReportController::class, 'index'])->name('report.index');
 
-Route::get('/budget/{month?}', [MonthCotroller::class, 'index'])->name('nextmonth.index');
+Route::get('/budget/{month}', [MonthCotroller::class, 'index'])->name('nextmonth.index');

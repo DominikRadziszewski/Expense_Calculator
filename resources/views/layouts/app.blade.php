@@ -51,7 +51,7 @@
                         @else
                         <li class="nav-item">
                             <div class="nav-link">
-                              <a href="{{route('nextmonth.index')}}">  Główna</a>
+                              <a href="{{route('budget.index')}}"> Główna</a>
                             </div>
                         </li>
                         <li class="nav-link">

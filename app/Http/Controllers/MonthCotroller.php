@@ -9,30 +9,17 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Expenses;
 class MonthCotroller extends Controller
 {
-    public function index($month = null){
-        $month = $month ?: now()->format('m');
-        $month = is_numeric($month) ? $month : now()->format('m');
-
+     public function index($month)
+    {
         $user = Auth::user();
 
-        $incomesQuery = Income::where('user_id', $user->id);
-        $filteredIncomes = Income::filterIncomesByMonth($incomesQuery, $month);
-        $incomes = $filteredIncomes->get();
-        
-        $expensesQuery = Expenses::where('user_id', $user->id);
-        $filteredExpenses = Expenses::filterExpensesByMonth($expensesQuery, $month);
-        $expenses = $filteredExpenses->get();
+        $incomes = Income::filterIncomesByMonth($user->incomes(), $month)->get();
+        $expenses = Expenses::filterExpensesByMonth($user->expenses(), $month)->get();
 
         $general_income = $user->generalIncome();
         $general_expenses = $user->generalExpenses();
-    
-       
-        return view('nextmonth.index', ['month' => $month,
-        'incomes' => $incomes,
-        'expenses' => $expenses,
-        'general_income' => $general_income,
-        'general_expenses' => $general_expenses]);
- 
 
-}
+        return view('nextmonth.index', compact('month', 'incomes', 'expenses', 'general_income', 'general_expenses'));
+    }
+
 }
