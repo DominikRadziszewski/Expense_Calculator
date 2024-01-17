@@ -29,6 +29,6 @@ Route::get('/budget/create', [App\Http\Controllers\BudgetController::class, 'cre
 Route::post('/budget/store', [App\Http\Controllers\BudgetController::class,'store'])->name('budget.store');
 Route::delete('/budget/{id}', [App\Http\Controllers\BudgetController::class, 'destroy'])->name('budget.destroy');
 
-Route::get('/report',[ReportController::class, 'index'])->name('report.index');
+Route::get('/report/{month}',[ReportController::class, 'index'])->name('report.index');
 
 Route::get('/budget/{month}', [MonthCotroller::class, 'index'])->name('nextmonth.index');

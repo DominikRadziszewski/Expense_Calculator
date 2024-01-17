@@ -59,11 +59,6 @@
                              <a href="{{route('budget.create')}}"> Dodaj</a>
                             </div>
                         </li>
-                        <li class="nav-link">
-                            <div class="">
-                                <a href="{{route('report.index')}}"> Raport</a>
-                            </div>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}

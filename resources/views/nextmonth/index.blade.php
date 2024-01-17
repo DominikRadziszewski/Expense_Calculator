@@ -26,7 +26,7 @@
                 <button id="nextMonthButton" onclick="window.location.href='{{ route('nextmonth.index', ['month' => sprintf('%02d', min(12, $month + 1))]) }}'                    ">
                     Następny Miesiąc ->
                 </button>
-            </div>  
+            </div> 
         </div>
     </div>
     
@@ -143,6 +143,10 @@
                     </table>
                 </div>
             </div>
+            <div class="col text-right">
+                <a href="{{ route('report.index', [$month]) }}" class="btn btn-primary">Raport</a>
+            </div> 
+          
         </div>
     </div>
 </div>

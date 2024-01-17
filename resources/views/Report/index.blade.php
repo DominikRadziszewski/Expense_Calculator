@@ -9,13 +9,25 @@
     </div>
 </div>
 <div class="container">
+    <div class="row align-items-start" style="text-align: center;">
+      
+        <div class="col h2">
+            @php 
+                use App\Helpers\MonthHelper;
+                echo MonthHelper::getMonthName($month);
+            @endphp
+        </div>
+        <div class="col">
+            <a href="{{ route('nextmonth.index', [$month]) }}">Powrót</a>
+        </div>
+    </div>
     <div class="card">
         <div class="row justify-content-center">
             <div class="card-body mb-5">
                 <chart-component :labels="{{ json_encode($labels) }}" :values="{{ json_encode($values) }}"></chart-component>
             </div>
         </div>
-    </div>r
+    </div>
 </div>
 <div class="ml-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
     Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})

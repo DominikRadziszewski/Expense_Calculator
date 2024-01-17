@@ -10,16 +10,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 class ReportController extends Controller
 {
-    public function index()
+    public function index($month)
     {
         $user = Auth::user();
-    $incomesQuery = Income::where('user_id', $user->id);
-    
-    $date = now();
-    $filteredIncomes = Income::filterIncomesByMonth($incomesQuery, 'm', $date);
-    
-    $incomes = $filteredIncomes->get();
-        $expenses = Expenses::where('user_id', $user->id)->get();
+
+        $incomes = Income::filterIncomesByMonth($user->incomes(), $month)->get();
+        $expenses = Expenses::filterExpensesByMonth($user->expenses(), $month)->get();
+
 
         $labels = IncomeCategory::IncomeCategory;
 
@@ -27,13 +24,10 @@ class ReportController extends Controller
             $totalAmount = $incomes->where('category', $label)->sum('amount');
             $values[$label] = $totalAmount;
         }
+  
     
-    
+        return view('report.index', compact('month','incomes','labels','values'));
 
 
-        return view('report.index', [
-            'labels' => $labels,
-            'values' => $values,
-        ]);
     }
 }
