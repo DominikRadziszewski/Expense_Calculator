@@ -19,7 +19,6 @@ class BudgetController extends Controller
     
         $general_income = $user->generalIncome();
         $general_expenses = $user->generalExpenses();
-        $month;
         return view('budget.index', [
             'incomes' => $incomes,
             'expenses' => $expenses,
