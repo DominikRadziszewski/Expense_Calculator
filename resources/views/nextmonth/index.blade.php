@@ -109,9 +109,8 @@
                             </thead>
                             <tbody>
                                 @foreach ($expenses as $expense)
-                                @if(month('m', strtotime($month)) == month('m', strtotime($expense->month)))
                                 <tr>
-                                    <td>{{ $expense->month }}</td>
+                                    <td>{{ $expense->date }}</td>
                                     <td>{{ $expense->name }}</td>
                                     <td>{{ $expense->amount }}</td>
                                     <td>{{ $expense->category }}</td>
@@ -124,7 +123,6 @@
                                         </form>
                                     </td>
                                 </tr>
-                                @endif
                                 @endforeach
                             </tbody>
                         </table>

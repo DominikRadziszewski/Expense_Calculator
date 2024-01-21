@@ -27,7 +27,7 @@ export default {
         data: {
           labels: this.labels,
           datasets: [{
-            label: 'Przychód w Zł',
+            label: 'W Zł',
             data: this.values,
             borderWidth: 1,
           }],

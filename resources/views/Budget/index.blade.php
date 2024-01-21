@@ -9,25 +9,10 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row align-items-start" style="text-align: center;">
-          <div class="col">
-            <button id="previousMonthButton">
-                Poprzedni Miesiąc
-            </button>
-          </div>
-          <div class="col h2" >
-            @php 
-                use App\Helpers\MonthHelper;
-                echo MonthHelper::getMonthName($month);
-            @endphp
-            </div>  
-            <div class="col">
-                <button id="nextMonthButton">
-                    Następny Miesiąc ->
-                </button>
-        </div>  
-        
+    <div class="row justify-content-center">
+        <div class="col h3" style="text-align: center">
+            Witam w rocznym podsumowaniu twoich wydaków i przychodów
+        </div>
     </div>
     <div class="card">
         <div class="row justify-content-center">
@@ -107,7 +92,6 @@
                             </thead>
                             <tbody>
                                 @foreach ($expenses as $expense)
-                                @if(date('m', strtotime($date)) == date('m', strtotime($expense->date)))
                                 <tr>
                                     <td>{{ $expense->date }}</td>
                                     <td>{{ $expense->name }}</td>
@@ -122,7 +106,7 @@
                                         </form>
                                     </td>
                                 </tr>
-                                @endif
+                                
                                 @endforeach
                             </tbody>
                         </table>

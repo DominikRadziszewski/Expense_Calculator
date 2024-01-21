@@ -20,6 +20,7 @@ class MonthCotroller extends Controller
         $general_expenses = $user->generalExpenses();
 
         return view('nextmonth.index', compact('month', 'incomes', 'expenses', 'general_income', 'general_expenses'));
+        
     }
 
 }

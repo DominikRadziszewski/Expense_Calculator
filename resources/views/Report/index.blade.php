@@ -24,7 +24,10 @@
     <div class="card">
         <div class="row justify-content-center">
             <div class="card-body mb-5">
-                <chart-component :labels="{{ json_encode($labels) }}" :values="{{ json_encode($values) }}"></chart-component>
+                <chart-component :labels="{{ json_encode($income_labels) }}" :values="{{ json_encode($income_values) }}"></chart-component>
+            </div>
+            <div class="card-body mb-5">
+                <chart-component :labels="{{ json_encode($expenses_labels) }}" :values="{{ json_encode($expenses_values) }}"></chart-component>
             </div>
         </div>
     </div>

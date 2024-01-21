@@ -51,7 +51,12 @@
                         @else
                         <li class="nav-item">
                             <div class="nav-link">
-                              <a href="{{route('budget.index')}}"> Główna</a>
+                              <a href="{{route('budget.index')}}"> Roczne</a>
+                            </div>
+                        </li>
+                        <li class="nav-link">
+                            <div class="">
+                             <a href="{{ route('nextmonth.index', ['month' => '01']) }}"> Miesięczne</a>
                             </div>
                         </li>
                         <li class="nav-link">
