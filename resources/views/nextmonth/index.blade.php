@@ -12,24 +12,26 @@
     <div class="container">
         <div class="row align-items-start" style="text-align: center;">
             <div class="col">
-                <button id="previousMonthButton" onclick="window.location.href='{{ route('nextmonth.index', ['month' => sprintf('%02d', max(1, $month - 1))]) }}'">
+                <button id="previousMonthButton"
+                    onclick="window.location.href='{{ route('nextmonth.index', ['month' => sprintf('%02d', max(1, $month - 1))]) }}'">
                     Poprzedni Miesiąc
                 </button>
             </div>
             <div class="col h2">
-                @php 
-                    use App\Helpers\MonthHelper;
-                    echo MonthHelper::getMonthName($month);
+                @php
+                use App\Helpers\MonthHelper;
+                echo MonthHelper::getMonthName($month);
                 @endphp
             </div>
             <div class="col">
-                <button id="nextMonthButton" onclick="window.location.href='{{ route('nextmonth.index', ['month' => sprintf('%02d', min(12, $month + 1))]) }}'                    ">
+                <button id="nextMonthButton"
+                    onclick="window.location.href='{{ route('nextmonth.index', ['month' => sprintf('%02d', min(12, $month + 1))]) }}'                    ">
                     Następny Miesiąc ->
                 </button>
-            </div> 
+            </div>
         </div>
     </div>
-    
+
     <div class="card">
         <div class="row justify-content-center">
             <div class="col-md-2">
@@ -59,15 +61,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                              @foreach ($incomes as $income)
-                            
+                                @foreach ($incomes as $income)
+
                                 <tr>
                                     <td>{{ $income->date }}</td>
                                     <td>{{ $income->name }}</td>
                                     <td>{{ $income->amount }}</td>
                                     <td>{{ $income->category }}</td>
                                     <td>
-                                        <form action="{{ route('budget.destroy', ['id' => $income->id]) }}" method="post">
+                                        <form action="{{ route('budget.destroy', ['id' => $income->id]) }}"
+                                            method="post">
                                             @csrf
                                             @method('DELETE')
                                             <input type="hidden" name="value" value="1">
@@ -75,9 +78,9 @@
                                         </form>
                                     </td>
                                 </tr>
-                            @endforeach
+                                @endforeach
                             </tbody>
-                            
+
                         </table>
                     </div>
                 </div>
@@ -115,7 +118,8 @@
                                     <td>{{ $expense->amount }}</td>
                                     <td>{{ $expense->category }}</td>
                                     <td>
-                                        <form action="{{ route('budget.destroy', ['id' => $expense->id]) }}" method="post">
+                                        <form action="{{ route('budget.destroy', ['id' => $expense->id]) }}"
+                                            method="post">
                                             @csrf
                                             @method('DELETE')
                                             <input type="hidden" name="value" value="2">
@@ -143,8 +147,8 @@
             </div>
             <div class="col text-right">
                 <a href="{{ route('report.index', [$month]) }}" class="btn btn-primary">Raport</a>
-            </div> 
-          
+            </div>
+
         </div>
     </div>
 </div>

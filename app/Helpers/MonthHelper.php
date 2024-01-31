@@ -2,8 +2,10 @@
 
 namespace App\Helpers;
 
-class MonthHelper {
-    public static function getMonthName($month) {
+class MonthHelper
+{
+    public static function getMonthName($month)
+    {
         switch ($month) {
             case '01':
                 return "Styczeń";

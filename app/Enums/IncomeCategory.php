@@ -2,17 +2,17 @@
 
 namespace App\Enums;
 
-enum  IncomeCategory:string{
+enum  IncomeCategory: string
+{
 
 
-const salary = 'Wypłata';
-const sideline  = 'Fucha';
-const sprzedaż = 'Sprzedaż';
+    const salary = 'Wypłata';
+    const sideline  = 'Fucha';
+    const sprzedaż = 'Sprzedaż';
 
-const IncomeCategory = [
-    self::salary,
-    self::sideline ,
-    self::sprzedaż,
-];
-
+    const IncomeCategory = [
+        self::salary,
+        self::sideline,
+        self::sprzedaż,
+    ];
 }

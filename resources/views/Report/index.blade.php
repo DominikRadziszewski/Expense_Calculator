@@ -10,11 +10,11 @@
 </div>
 <div class="container">
     <div class="row align-items-start" style="text-align: center;">
-      
+
         <div class="col h2">
-            @php 
-                use App\Helpers\MonthHelper;
-                echo MonthHelper::getMonthName($month);
+            @php
+            use App\Helpers\MonthHelper;
+            echo MonthHelper::getMonthName($month);
             @endphp
         </div>
         <div class="col">
@@ -24,10 +24,12 @@
     <div class="card">
         <div class="row justify-content-center">
             <div class="card-body mb-5">
-                <chart-component :labels="{{ json_encode($income_labels) }}" :values="{{ json_encode($income_values) }}"></chart-component>
+                <chart-component :labels="{{ json_encode($income_labels) }}"
+                    :values="{{ json_encode($income_values) }}"></chart-component>
             </div>
             <div class="card-body mb-5">
-                <chart-component :labels="{{ json_encode($expenses_labels) }}" :values="{{ json_encode($expenses_values) }}"></chart-component>
+                <chart-component :labels="{{ json_encode($expenses_labels) }}"
+                    :values="{{ json_encode($expenses_values) }}"></chart-component>
             </div>
         </div>
     </div>

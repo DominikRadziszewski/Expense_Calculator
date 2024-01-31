@@ -13,7 +13,8 @@
                         <div class="row mb-3">
                             <label for="type" class="col-md-4 col-form-label text-md-end">Typ transakcji</label>
                             <div class="col-md-6">
-                                <select name="type" id="type" class="form-control" required onchange="updateCategoryOptions()">
+                                <select name="type" id="type" class="form-control" required
+                                    onchange="updateCategoryOptions()">
                                     <option value="income">Przychód</option>
                                     <option value="expense">Wydatek</option>
                                 </select>
@@ -26,43 +27,48 @@
                                 </select>
                             </div>
                         </div>
-                       
+
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">Nazwa</label>
                             <div class="col-md-6">
-                                <input id="name" type="text" maxlength="500" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" maxlength="500"
+                                    class="form-control @error('name') is-invalid @enderror" name="name"
+                                    value="{{ old('name') }}" required autocomplete="name" autofocus>
                                 @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
-                        
+
                         <div class="row mb-3">
                             <label for="amount" class="col-md-4 col-form-label text-md-end">Ile</label>
                             <div class="col-md-6">
-                                <input id="amount" type="number" min="0" class="form-control @error('amount') is-invalid @enderror" name="amount" value="{{ old('amount') }}" required autocomplete="amount" autofocus>
+                                <input id="amount" type="number" min="0"
+                                    class="form-control @error('amount') is-invalid @enderror" name="amount"
+                                    value="{{ old('amount') }}" required autocomplete="amount" autofocus>
                                 @error('amount')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
-                        
-                   
 
-                        
+
+
+
 
                         <div class="row mb-3">
                             <label for="date" class="col-md-4 col-form-label text-md-end">Data</label>
                             <div class="col-md-6">
-                                <input id="date" type="date" class="form-control @error('date') is-invalid @enderror" name="date" value="{{ old('date') }}" required autocomplete="date">
+                                <input id="date" type="date" class="form-control @error('date') is-invalid @enderror"
+                                    name="date" value="{{ old('date') }}" required autocomplete="date">
                                 @error('date')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -98,4 +104,3 @@
         });
     }
 </script>
-                       
