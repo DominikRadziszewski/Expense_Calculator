@@ -45,20 +45,21 @@
                             <tbody>
                                 @foreach ($incomes as $income)
                                 <tr>
-                                            <td>{{ $income->date }}</td>
-                                            <td>{{ $income->name }}</td>
-                                            <td>{{ $income->amount }}</td>
-                                            <td>{{ $income->category }}</td>
-                                            <td>
-                                                <form action="{{ route('budget.destroy', ['id' => $income->id]) }}" method="post">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <input type="hidden" name="value" value="1">
-                                                    <button class="delete" type="submit">Delete</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    
+                                    <td>{{ $income->date }}</td>
+                                    <td>{{ $income->name }}</td>
+                                    <td>{{ $income->amount }}</td>
+                                    <td>{{ $income->category }}</td>
+                                    <td>
+                                        <form action="{{ route('budget.destroy', ['id' => $income->id]) }}"
+                                            method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <input type="hidden" name="value" value="1">
+                                            <button class="delete" type="submit">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+
                                 @endforeach
                             </tbody>
                         </table>
@@ -98,7 +99,8 @@
                                     <td>{{ $expense->amount }}</td>
                                     <td>{{ $expense->category }}</td>
                                     <td>
-                                        <form action="{{ route('budget.destroy', ['id' => $expense->id]) }}" method="post">
+                                        <form action="{{ route('budget.destroy', ['id' => $expense->id]) }}"
+                                            method="post">
                                             @csrf
                                             @method('DELETE')
                                             <input type="hidden" name="value" value="2">
@@ -106,7 +108,7 @@
                                         </form>
                                     </td>
                                 </tr>
-                                
+
                                 @endforeach
                             </tbody>
                         </table>
