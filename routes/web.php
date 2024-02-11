@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\MonthCotroller;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
@@ -32,3 +33,5 @@ Route::delete('/budget/{id}', [App\Http\Controllers\BudgetController::class, 'de
 Route::get('/report/{month}', [ReportController::class, 'index'])->name('report.index');
 
 Route::match(['get', 'post'], '/budget/{month}', [MonthCotroller::class, 'index'])->name('nextmonth.index');
+
+
