@@ -44,11 +44,13 @@
                                     <p class="card-text">{{ number_format($general_expenses, 2, ',', ' ') }} zł</p>
                                 </div>
                             </div>
-                            <div class="card bg-light mb-3 text-center">
-                                <div class="card-body">
+                            <div class="card bg-light mb-3 text-center ">
+                                <div class="card-body" style="{{ number_format(($general_income - $general_expenses)) > 0 ? 'color: green;' : 'color: red;' }}">
                                     <h5 class="card-title">Bilans</h5>
-                                    <p class="card-text">{{ number_format(($general_income - $general_expenses), 2, ',',
-                                        ' ') }} zł</p>
+                                    <p class="card-text" >
+                                        {{ number_format(($general_income - $general_expenses), 2, ',', ' ') }} zł
+                                    </p>
+                                    
                                 </div>
                             </div>
                         </div>
